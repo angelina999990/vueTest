@@ -11,10 +11,10 @@
             <img src="../assets/logo.png" alt="avatar">
           </v-avatar>
           <h3 class="grow-0">
-            香港中文大学
+            某某某某大学
             <br>
             <span class="body-2">
-              The Chinese University of HongKong
+              The Chinese University  Lorem ipsum dolor sit
             </span>
           </h3>
 
