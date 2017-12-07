@@ -8,9 +8,7 @@ import appFooter from '@/components/appFooter'
 import router from './router'
 import Vuetify from 'vuetify'
 
-//  TODO: move style file style folder
-import '../node_modules/vuetify/dist/vuetify.min.css'
-import './style/font-awesome.css'
+import './style/app.scss';
 
 Vue.config.productionTip = false
 
