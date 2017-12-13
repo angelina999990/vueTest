@@ -35,57 +35,59 @@
       </v-menu>
     </v-toolbar>
 
-    <v-toolbar class="white hidden-sm-and-up" light>
-      <v-avatar :tile="true" size="30px">
-        <img src="../assets/logo.png" alt="avatar">
-      </v-avatar>
-      <v-toolbar-title class="body-2">APPLICATION PORTAL</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-icon class="ma-4" @click="isOpen = !isOpen">fa-bars</v-icon>
-    </v-toolbar>
-    <v-layout>
-      <v-flex>
-        <v-expansion-panel>
-          <v-expansion-panel-content v-model="isOpen">
-            <v-list dense>
-              <template v-for="(item, index) in tabs">
-                <v-list-tile v-bind:key="item" @click="">
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{item}}</v-list-tile-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-                <v-divider></v-divider>
-              </template>
-              <v-list-group v-model="isActive">
-                <v-list-tile avatar slot="item">
-                  <v-list-tile-action>
-                    <v-avatar size="20px" slot="activator">
-                      <img src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" alt="">
-                    </v-avatar>
-                  </v-list-tile-action>
-                  <v-list-tile-content>
-                    <v-list-tile-title>John Mullen</v-list-tile-title>
-                  </v-list-tile-content>
-                  <v-list-tile-action>
-                    <v-icon>keyboard_arrow_down</v-icon>
-                  </v-list-tile-action>
-                </v-list-tile>
-                <v-list-tile class="pr-0">
-                  <v-list-tile-content class="b-b">
-                    <v-list-tile-title>reset password</v-list-tile-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-                <v-list-tile class="pr-0">
-                  <v-list-tile-content>
-                    <v-list-tile-title>Logout</v-list-tile-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-              </v-list-group>
-            </v-list>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-flex>
-    </v-layout>
+    <div class="hidden-sm-and-up">
+      <v-toolbar class="white" light>
+        <v-avatar :tile="true" size="30px">
+          <img src="../assets/logo.png" alt="avatar">
+        </v-avatar>
+        <v-toolbar-title class="body-2">APPLICATION PORTAL</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-icon class="ma-4" @click="isOpen = !isOpen">fa-bars</v-icon>
+      </v-toolbar>
+      <v-layout>
+        <v-flex>
+          <v-expansion-panel>
+            <v-expansion-panel-content v-model="isOpen">
+              <v-list dense>
+                <template v-for="(item, index) in tabs">
+                  <v-list-tile v-bind:key="item" @click="">
+                    <v-list-tile-content>
+                      <v-list-tile-title>{{item}}</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-divider></v-divider>
+                </template>
+                <v-list-group v-model="isActive">
+                  <v-list-tile avatar slot="item">
+                    <v-list-tile-action>
+                      <v-avatar size="20px" slot="activator">
+                        <img src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" alt="">
+                      </v-avatar>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>John Mullen</v-list-tile-title>
+                    </v-list-tile-content>
+                    <v-list-tile-action>
+                      <v-icon>keyboard_arrow_down</v-icon>
+                    </v-list-tile-action>
+                  </v-list-tile>
+                  <v-list-tile class="pr-0">
+                    <v-list-tile-content class="b-b">
+                      <v-list-tile-title>reset password</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-list-tile class="pr-0">
+                    <v-list-tile-content>
+                      <v-list-tile-title>Logout</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                </v-list-group>
+              </v-list>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-flex>
+      </v-layout>
+    </div>
   </div>
 </template>
 
