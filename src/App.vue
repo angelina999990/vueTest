@@ -2,7 +2,7 @@
   <v-app id="app">
     <app-header></app-header>
     <v-content>
-      <v-container fluid>
+      <v-container fluid pl-1 pr-1>
         <router-view></router-view>
       </v-container>
     </v-content>
