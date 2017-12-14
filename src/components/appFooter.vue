@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="purple darken-4 white--text caption" app>
+  <v-footer color="primary white--text caption" app>
     <v-container fluid class="pt-4 pb-4 pr-5 pl-5">
       <v-layout>
         <v-layout column>

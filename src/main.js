@@ -12,7 +12,14 @@ import './style/app.scss';
 
 Vue.config.productionTip = false
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#423172',
+    secondary: '#b0bec5',
+    accent: '#8c9eff',
+    error: '#b71c1c'
+  }
+});
 
 Vue.component('appHeader', appHeader)
 Vue.component('appFooter', appFooter)

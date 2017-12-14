@@ -38,7 +38,7 @@
       <v-flex md9 xs12>
         <v-card class="pr-3 pl-3">
           <v-card-title primary-title tile>
-            <h2 class="deep-purple--text text--darken-4 mb-0"><b>PERSON PARTICULARS</b></h2>
+            <h2 class="primary--text mb-0"><b>PERSON PARTICULARS</b></h2>
           </v-card-title>
           <v-card-text class="text-md-left">
             <v-layout row wrap>
@@ -47,24 +47,24 @@
               </v-flex>
               <v-flex md10 xs12>
                 <v-layout class="row wrap" justify-start>
-                  <v-flex md6 class="form-filed">
+                  <v-flex lg6 xs12 class="form-filed">
                     <div class="field-title">Passport Family Name</div>
                     <input type="text" class="field-control">
                     <div class="field-comment">Same as your ID or passport</div>
                   </v-flex>
-                  <v-flex md6 class="form-filed">
+                  <v-flex lg6 xs12 class="form-filed">
                     <div class="field-title">Passport Given Name</div>
                     <input type="text" class="field-control">
                     <div class="field-comment">Same as your ID or passport</div>
                   </v-flex>
                 </v-layout>
                 <v-layout class="row wrap mt-4" justify-start>
-                  <v-flex md6 class="form-filed">
+                  <v-flex lg6 xs12 class="form-filed">
                     <div class="field-title">Alias / Nickname</div>
                     <input type="text" class="field-control">
                     <div class="field-comment">Same as your ID or passport</div>
                   </v-flex>
-                  <v-flex md6 class="form-filed">
+                  <v-flex lg6 xs12 class="form-filed">
                     <div class="field-title">Chinese Name (if any)</div>
                     <input type="text" class="field-control">
                     <div class="field-comment">Same as your ID or passport</div>
@@ -162,23 +162,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.form-filed {
-  .field-title {
-    font-size: 14px;
-    margin-bottom: 4px;
-  }
-
-  .field-comment {
-    font-size: 12px;
-    margin-top: 4px;
-    color: #777;
-  }
-
-  input.field-control {
-    width: 100%;
-    height: 30px;
-    border: 1px solid #311b92;
-    border-radius: 2px;
-  }
-}
+// .form-filed {
+//   .field-title {
+//     font-size: 14px;
+//     margin-bottom: 4px;
+//   }
+//
+//   .field-comment {
+//     font-size: 12px;
+//     margin-top: 4px;
+//     color: #777;
+//   }
+//
+//   input.field-control {
+//     width: 100%;
+//     height: 30px;
+//     border: 1px solid #311b92;
+//     border-radius: 2px;
+//   }
+// }
 </style>

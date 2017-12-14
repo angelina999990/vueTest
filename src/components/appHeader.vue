@@ -1,20 +1,24 @@
 <template>
   <div>
-    <v-toolbar class="white pl-5 pr-5 hidden-sm-and-down" light>
+    <v-toolbar class="white pl-5 pr-5 hidden-md-and-down" light>
       <v-avatar :tile="true" size="30px">
         <img src="../assets/logo.png" alt="avatar">
       </v-avatar>
-      <v-toolbar-title class="body-2">APPLICATION PORTAL</v-toolbar-title>
+      <v-toolbar-title class="body-2">
+        <router-link :to="{ name: 'home'}">
+          <b>APPLICATION PORTAL</b>
+        </router-link>
+      </v-toolbar-title>
       <v-tabs :scrollable="false" class="header-tabs" fixed centered>
         <v-tabs-bar light>
           <v-tabs-slider color="deep-purple"></v-tabs-slider>
           <v-tabs-item
             v-for="tab in tabs"
-            :key="tab"
-            :href="'#' + tab"
+            :key="tab.name"
+            :to="tab.to"
             ripple
           >
-            {{ tab }}
+            {{ tab.name }}
           </v-tabs-item>
         </v-tabs-bar>
       </v-tabs>
@@ -35,12 +39,16 @@
       </v-menu>
     </v-toolbar>
 
-    <div class="hidden-sm-and-up">
+    <div class="hidden-md-and-up">
       <v-toolbar class="white" light>
         <v-avatar :tile="true" size="30px">
           <img src="../assets/logo.png" alt="avatar">
         </v-avatar>
-        <v-toolbar-title class="body-2">APPLICATION PORTAL</v-toolbar-title>
+        <v-toolbar-title class="body-2 primary--text">
+          <router-link :to="{ name: 'home'}">
+            <b>APPLICATION PORTAL</b>
+          </router-link>
+        </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-icon class="ma-4" @click="isOpen = !isOpen">fa-bars</v-icon>
       </v-toolbar>
@@ -48,11 +56,13 @@
         <v-flex>
           <v-expansion-panel>
             <v-expansion-panel-content v-model="isOpen">
-              <v-list dense>
-                <template v-for="(item, index) in tabs">
-                  <v-list-tile v-bind:key="item" @click="">
+              <v-list dense dark class="primary">
+                <template v-for="(tab, index) in tabs">
+                  <v-list-tile :key="tab.name" :to="tab.to">
                     <v-list-tile-content>
-                      <v-list-tile-title>{{item}}</v-list-tile-title>
+                      <v-list-tile-title>
+                        <b class="white--text">{{tab.name}}</b>
+                      </v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                   <v-divider></v-divider>
@@ -64,19 +74,16 @@
                         <img src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460" alt="">
                       </v-avatar>
                     </v-list-tile-action>
-                    <v-list-tile-content>
+                    <v-list-tile-content class="b-b" @click.stop.prevent="onClick()">
                       <v-list-tile-title>John Mullen</v-list-tile-title>
                     </v-list-tile-content>
-                    <v-list-tile-action>
-                      <v-icon>keyboard_arrow_down</v-icon>
-                    </v-list-tile-action>
                   </v-list-tile>
-                  <v-list-tile class="pr-0">
+                  <v-list-tile class="primary">
                     <v-list-tile-content class="b-b">
                       <v-list-tile-title>reset password</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <v-list-tile class="pr-0">
+                  <v-list-tile class="primary">
                     <v-list-tile-content>
                       <v-list-tile-title>Logout</v-list-tile-title>
                     </v-list-tile-content>
@@ -97,9 +104,28 @@ export default {
 
   data () {
     return {
-      tabs: ['APPLICATIONS', 'PROCEDURE', 'CONTACT US'],
+      tabs: [
+        {
+          name: 'APPLICATIONS',
+          to: 'application'
+        },
+        {
+          name: 'PROCEDURE',
+          to: 'procedure'
+        },
+        {
+          name: 'CONTACT US',
+          to: 'contact'
+        }
+      ],
       isOpen: false,
       isActive: true
+    }
+  },
+
+  methods: {
+    onClick: function () {
+      console.log(1)
     }
   }
 }
@@ -108,5 +134,9 @@ export default {
 <style lang="scss">
 .list--group__header+.list--group:after {
   opacity: 0;
+}
+
+.list--group__header--active .list__tile, .list--group__header>li:first-child:hover {
+  background: inherit;
 }
 </style>
