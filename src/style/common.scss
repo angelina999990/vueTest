@@ -2,12 +2,12 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(../assets/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: url(/static/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
   src: local('Material Icons'),
     local('MaterialIcons-Regular'),
-    url(../assets/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-    url(../assets/iconfont/MaterialIcons-Regular.woff) format('woff'),
-    url(../assets/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+    url(/static/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+    url(/static/fonts/MaterialIcons-Regular.woff) format('woff'),
+    url(/static/fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
 .material-icons {
   font-family: 'Material Icons';
@@ -58,10 +58,10 @@
     border: 1px solid #311b92;
     border-radius: 2px;
 
-    &[type="checkbox"] {
-      width: 30px;
-      // height: 30px;
-    }
+    // &[type="checkbox"] {
+    //   width: 30px;
+    //   // height: 30px;
+    // }
   }
 }
 

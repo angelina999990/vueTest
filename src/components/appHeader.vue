@@ -2,7 +2,7 @@
   <div>
     <v-toolbar class="white pl-5 pr-5 hidden-md-and-down" light>
       <v-avatar :tile="true" size="30px">
-        <img src="../assets/logo.png" alt="avatar">
+        <img src="/static/img/logo.png" alt="avatar">
       </v-avatar>
       <v-toolbar-title class="body-2">
         <router-link :to="{ name: 'home'}">
@@ -42,7 +42,7 @@
     <div class="hidden-md-and-up">
       <v-toolbar class="white" light>
         <v-avatar :tile="true" size="30px">
-          <img src="../assets/logo.png" alt="avatar">
+          <img src="/static/img/logo.png" alt="avatar">
         </v-avatar>
         <v-toolbar-title class="body-2 primary--text">
           <router-link :to="{ name: 'home'}">

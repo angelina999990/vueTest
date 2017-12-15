@@ -83,15 +83,8 @@
                 <v-layout class="row wrap" justify-start>
                   <v-flex md6 class="form-filed">
                     <div class="field-title">Passport Family Name</div>
-                    <v-select
-                      v-bind:items="items"
-                      v-model="nationality"
-                      label="Select"
-                      single-line
-                      bottom
-                      @input="onInput"
-                    ></v-select>
-                    <div class="field-comment">Same as your ID or passport</div>
+                    <v-select v-bind:items="items" overflow label="Select" v-model="nationality" @input="onInput" dense single-line hint="Same as your ID or passport"></v-select>
+                    <!-- <div class="field-comment">Same as your ID or passport</div> -->
                   </v-flex>
                   <v-flex md6 class="form-filed">
                     <div class="field-title">Passport Given Name</div>

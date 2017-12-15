@@ -8,7 +8,7 @@
         </v-layout>
         <v-flex class="d-flex" justify-end>
           <v-avatar class="grow-0 mr-3">
-            <img src="../assets/logo.png" alt="avatar">
+            <img src="/static/img/logo.png" alt="avatar">
           </v-avatar>
           <h3 class="grow-0">
             某某某某大学

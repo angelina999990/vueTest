@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex lg12>
       <v-card>
-        <v-card-media src="src/assets/background.jpg" class="login-bg">
+        <v-card-media src="/static/img/background.jpg" class="login-bg">
           <v-container fluid>
             <v-layout justify-center ali>
               <v-flex lg3 >
@@ -11,19 +11,19 @@
                     <div class="title primary--text"><b>Login</b></div>
 
                     <v-layout class="row wrap mt-3" justify-center>
-                      <v-flex lg12 class="form-filed">
+                      <v-flex sm12 class="form-filed">
                         <div class="field-title">Username</div>
                         <input type="text" class="field-control">
                       </v-flex>
-                      <v-flex lg12 class="form-filed mt-3">
+                      <v-flex sm12 class="form-filed mt-3">
                         <div class="field-title">Password</div>
                         <input type="password" class="field-control">
                       </v-flex>
-                      <v-flex lg12 class="form-filed mt-3 d-flex">
-                        <input id="remember" type="checkbox" class="field-control" style="flex-grow: 0;">
-                        <label for="remember" class="control-label" style="align-self: center">
-                           remember me
-                        </label>
+                      <v-flex sm12>
+                        <v-checkbox label="remember me"
+                                    v-model="form.isRemember"
+                                    color="indigo darken-3"
+                                    value="indigo darken-3"></v-checkbox>
                       </v-flex>
 
                       <v-flex lg12>
@@ -45,7 +45,14 @@
 
 <script>
 export default {
-  name: 'login'
+  name: 'login',
+  data: function () {
+    return {
+      form: {
+        isRemember: false
+      }
+    }
+  }
 }
 </script>
 
