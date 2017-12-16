@@ -1,10 +1,15 @@
 <template>
   <v-app id="app">
-    <app-header></app-header>
-    <v-content>
+    <template v-if="$route.name!=='ui'">
+      <app-header></app-header>
+      <v-content>
+        <router-view></router-view>
+      </v-content>
+      <app-footer></app-footer>
+    </template>
+    <v-container v-else>
       <router-view></router-view>
-    </v-content>
-    <app-footer></app-footer>
+    </v-container>
   </v-app>
 </template>
 

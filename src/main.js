@@ -6,9 +6,12 @@ import App from './App'
 import appHeader from '@/components/appHeader'
 import appFooter from '@/components/appFooter'
 import router from './router'
-import Vuetify from 'vuetify'
 
-import './style/app.scss';
+//vendor
+import Vuetify from 'vuetify'
+import Multiselect from 'vue-multiselect'
+
+import './style/app.scss'
 
 Vue.config.productionTip = false
 
@@ -19,7 +22,11 @@ Vue.use(Vuetify, {
     accent: '#8c9eff',
     error: '#b71c1c'
   }
-});
+})
+
+//vendor
+Vue.component('multiselect', Multiselect)
+
 
 Vue.component('appHeader', appHeader)
 Vue.component('appFooter', appFooter)
