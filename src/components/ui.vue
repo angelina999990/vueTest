@@ -139,6 +139,44 @@
               </div>
             </v-flex>
           </v-layout>
+          <v-layout row wrap mt-4>
+            <v-flex md12 sm12>
+              <h3>file upload - use with vue2-dropzone</h3>
+              <v-divider class="mb-3"></v-divider>
+            </v-flex>
+            <v-flex md6 sm12>
+              <div class="file-uploader-container d-flex">
+                <div class="file-status">
+                  <v-icon color="green" class="pr-2" v-if="file">done</v-icon>
+                  <v-icon color="yellow darken-2" class="pr-2" v-else>more_horiz</v-icon>
+                </div>
+                <div class="file-uploader-body layout d-flex column justify-center">
+                  <div class="file-name body-2 d-flex align-center">{{ fileName }}</div>
+                  <div class="file-detail">
+                    <div class="file-format">File Format: {{ fileType }}</div>
+                    <div class="file-size">{{ fileSize }}</div>
+                  </div>
+                  <div class="file-operation d-flex align-end">
+                    <template v-if="file">
+                      <v-btn flat small color="primary" class="mt-0 mr-0 mb-0 flex-grow-0" right><v-icon class="font-18 pr-1">fa-eye</v-icon>Preview</v-btn>
+                      <v-btn flat small color="primary" class="ma-0 flex-grow-0" right @click="deleteFile"><v-icon class="title">delete</v-icon>Delete</v-btn>
+                    </template>
+                    <v-btn flat small color="primary" right class="upload-btn mt-0 mr-0 mb-0 flex-grow-0" v-else><v-icon class="title">file_upload</v-icon>{{uploadBtnText}}</v-btn>
+                  </div>
+                </div>
+                <vue-dropzone
+                  id="customdropzone"
+                  class="file-uploader-dropzone"
+                  ref="customdropzone"
+                  :options="dropzoneOptions"
+                  :include-styling="false"
+                  @vdropzone-file-added="onFileAdded"
+                  @vdropzone-error="onFileError"
+                >
+                </vue-dropzone>
+              </div>
+            </v-flex>
+          </v-layout>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -164,7 +202,32 @@ export default {
       ],
       selectedValue1: undefined,
       selectedValue2: undefined,
-      selectedValue3: []
+      selectedValue3: [],
+      dropzoneOptions: {
+        url: 'https://httpbin.org/post',
+        maxFiles: 1, // maximum number of files that will be handle, only limit number of file uploaded when choose more than limit
+        // uploadMultiple: true, // upload multi files in one request
+        thumbnailWidth: 0,
+        addRemoveLinks: true,
+        autoProcessQueue: false, // set autoProcessQueue=false, so to call .processQueue() to manaully upload file(s) to server
+        clickable: '.upload-btn'
+      },
+      uploadBtnText: 'Upload',
+      file: null
+    }
+  },
+
+  computed: {
+    fileName: function () {
+      return this.file ? this.file.name : 'Please uplaod your file'
+    },
+
+    fileType: function () {
+      return this.file ? this.file.type : 'jpg/gif/png/pdf'
+    },
+
+    fileSize: function () {
+      return this.file ? `File Size: ${Math.ceil(this.file.size / 1024)}KB` : 'Max File Size: 1MB'
     }
   },
 
@@ -176,6 +239,26 @@ export default {
       }
       this.options.push(tag)
       this.selectedValue3.push(tag)
+    },
+
+    loadFile () {
+      console.log(this.$refs.fileUploader)
+      this.$refs.fileUploader.click()
+    },
+
+    onFileAdded (file) {
+      console.log(file)
+      this.file = file
+    },
+
+    onFileError (file, message, xhr) {
+      this.uploadBtnText = 'Re-upload'
+    },
+
+    deleteFile () {
+      // rm file from dropzone area
+      this.$refs.customdropzone.removeFile(this.file)
+      this.file = null
     }
   }
 }
@@ -186,10 +269,6 @@ form {
   height: 600px;
   border: 1px solid ;
   padding: 15px;
-
-
-
-
 }
 * {
   box-sizing: border-box;
@@ -333,5 +412,29 @@ form {
 // remove tag margin-bottom to reduce the height
 .multiselect__tag {
   margin-bottom: 0;
+}
+
+// file-upoader
+.file-uploader-container {
+  border: 1px solid #b8b8b8;
+  border-radius: 2px;
+  min-height: 120px;
+  padding: 8px 9px 4px 9px;
+
+  .file-status {
+    flex: 0 1 auto;
+  }
+
+  .file-detail {
+    font-size: 12px;
+    color: #777;
+  }
+}
+.file-uploader-dropzone {
+  // width: 100%;
+  // height: 40px;
+  // border: 1px solid #b8b8b8;
+  // border-radius: 2px;
+  display: none;
 }
 </style>

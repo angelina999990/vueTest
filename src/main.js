@@ -10,6 +10,7 @@ import router from './router'
 //vendor
 import Vuetify from 'vuetify'
 import Multiselect from 'vue-multiselect'
+import VueDropzone from 'vue2-dropzone'
 
 import './style/app.scss'
 
@@ -26,7 +27,7 @@ Vue.use(Vuetify, {
 
 //vendor
 Vue.component('multiselect', Multiselect)
-
+Vue.component('vueDropzone', VueDropzone)
 
 Vue.component('appHeader', appHeader)
 Vue.component('appFooter', appFooter)
