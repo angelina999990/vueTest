@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center>
-    <v-flex md6>
+    <v-flex md8>
       <v-card light >
         <v-card-title primary-title>
           <div class="title">Form control</div>
@@ -177,6 +177,26 @@
               </div>
             </v-flex>
           </v-layout>
+          <v-layout row wrap mt-4>
+            <v-flex md12 sm12>
+              <h3>datepicker</h3>
+              <v-divider class="mb-3"></v-divider>
+            </v-flex>
+            <v-flex md6>
+              <v-menu max-width="290px" min-width="290px" full-width>
+                <div class="form-control-field" slot="activator">
+                  <label class="field-label">pick a date</label>
+                  <div class="date-input">
+                    <input type="text" class="field-input" readonly v-model="dateValue" placeholder="pick a date">
+                    <v-icon class="calendar-caret">event</v-icon>
+                  </div>
+                  <span class="field-hint">this is hint</span>
+                  <span class="field-error">this is error</span>
+                </div>
+                <v-date-picker v-model="dateValue" no-title></v-date-picker>
+              </v-menu>
+            </v-flex>
+          </v-layout>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -213,7 +233,8 @@ export default {
         clickable: '.upload-btn'
       },
       uploadBtnText: 'Upload',
-      file: null
+      file: null,
+      dateValue: ''
     }
   },
 
@@ -284,7 +305,7 @@ form {
     margin-bottom: 2px;
   }
 
-  input[type="text"].field-input, select {
+  input[type="text"].field-input, input[type="date"].field-input, select {
     border: 1px solid #b8b8b8;
     padding: 5px 16px;
     width: 100%;
@@ -436,5 +457,16 @@ form {
   // border: 1px solid #b8b8b8;
   // border-radius: 2px;
   display: none;
+}
+
+// .date-input
+.date-input {
+  position: relative;
+
+  .calendar-caret {
+    position: absolute;
+    top: 3px;
+    right: 6px;
+  }
 }
 </style>
